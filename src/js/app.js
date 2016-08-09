@@ -3,7 +3,7 @@
 
 var coolCatData =  [
                 {
-                    name: 'Deniro',
+                    name: 'De Niro',
                     clickCount: 0,
                     movies: ['GodFather II','Raging Bull', "GoodFellas", "Taxi Driver"],
                     imgSrc: 'img/deniro.jpg'
