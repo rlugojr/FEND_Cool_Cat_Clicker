@@ -5,7 +5,12 @@
     <title>Cool Cat Clicker</title>
 </head>
 <body>
-    <ul id="cool-cat-list"></ul>
+    <div id="catPicker">
+        <h2>Coolest Cats Ever</h2>
+        <ul data-bind="foreach: coolCatList">
+            <li data-bind="text: name, click: $parent.swapCat"></li>
+        </ul>
+    </div>
     
     <div id="cool-cat" data-bind="with: currentCoolCat">
 

@@ -42,10 +42,6 @@ var CoolCat = function(data){
     this.movies = ko.observable(data.movies);
 }
 
-//Make coolCats Show up in a list
-
-//Make the currentCat change when you click on a coolCat
-
 var ViewModel = function(){
     var self = this;
 
@@ -59,6 +55,10 @@ var ViewModel = function(){
 
     this.incrementCounter = function(){
         self.currentCoolCat().clickCount(self.currentCoolCat().clickCount() + 1);
+    };
+
+    this.swapCat = function(clickedCoolCat){
+        self.currentCoolCat(clickedCoolCat)
     };
 
 }
