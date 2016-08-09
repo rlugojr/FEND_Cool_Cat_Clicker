@@ -16,7 +16,7 @@
     }
 
 
-var CoolCats = function(){
+var CoolCat = function(){
     this.clickCount = ko.observable(0);
     this.name = ko.observable('DeNiro');
     var clicks = this.clickCount();
@@ -35,8 +35,7 @@ var CoolCats = function(){
 }
 
 var ViewModel = function(){
-    
-
+    this.currentCoolCat = ko.observable(new CoolCat());
     this.incrementCounter = function(){
         this.clickCount(this.clickCount() + 1);
     };

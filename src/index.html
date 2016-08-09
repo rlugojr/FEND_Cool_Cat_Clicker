@@ -9,10 +9,10 @@
     
     <div id="cool-cat">
 
-        <h2 id="coolCatName" data-bind="text: name"></h2>
-        <h3 id="coolCatLevel" data-bind="text: level"></h3>
-        <div id="coolCatCount" data-bind="text: clickCount"></div>
-        <img id="coolCatImage" src="" alt="very cool cat" data-bind="click: incrementCounter, attr: {src: imgSrc}">
+        <h2 id="coolCatName" data-bind="text: currentCoolCat().name"></h2>
+        <h3 id="coolCatLevel" data-bind="text: currentCoolCat().level"></h3>
+        <div id="coolCatCount" data-bind="text: currentCoolCat().clickCount"></div>
+        <img id="coolCatImage" src="" alt="very cool cat" data-bind="click: incrementCounter, attr: {src: currentCoolCat().imgSrc}">
 
     </div>
     <script src="js/lib/knockout-3.2.0.js"></script>
