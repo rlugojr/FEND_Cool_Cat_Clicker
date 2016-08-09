@@ -3,22 +3,31 @@
 
     coolCatData = {
         coolCats: [
-                {coolCatName: 'deniro',
-                coolCatCount: 0,
-                coolCatImage: 'img/deniro.jpg'},
-                {coolCatName: 'Keitel',
-                coolCatCount: 0,
-                coolCatImage: 'img/keitel.jpg'},
-                {coolCatName: 'Pacino',
-                coolCatCount: 0,
-                coolCatImage: 'img/Pacino.jpg'}
+                {
+                    name: 'Deniro',
+                    clickCount: 0,
+                    movies: ['GodFather II','Raging Bull', "GoodFellas", "Taxi Driver"],
+                    imgSrc: 'img/deniro.jpg'
+                },
+                {
+                    name: 'Keitel',
+                    clickCount: 0,
+                    movies: ['Reservoir Dogs','Pulp Fiction'],
+                    imgSrc: 'img/keitel.jpg'
+                },
+                {
+                    name: 'Pacino',
+                    clickCount: 0,
+                    movies: ['GodFather Trilogy','Scarface','Carlito\'s way'],
+                    imgSrc: 'img/pacino.jpg'
+                }
             ]
     }
 
 
-var CoolCat = function(){
-    this.clickCount = ko.observable(0);
-    this.name = ko.observable('DeNiro');
+var CoolCat = function(data){
+    this.clickCount = ko.observable(data.clickCount);
+    this.name = ko.observable(data.name);
     this.level = ko.computed(function(){
         var clicks = this.clickCount();
         if(clicks<5){
@@ -31,14 +40,24 @@ var CoolCat = function(){
             return "Capo di Tutti Capo"
         }; 
     }, this);
-    this.imgSrc = ko.observable('img/deniro.jpg');
-    this.movies = ko.observable(['GodFather II','Raging Bull', "GoodFellas", "Taxi Driver"]);
+    this.imgSrc = ko.observable(data.imgSrc);
+    this.movies = ko.observable(data.movies);
 }
 
 var ViewModel = function(){
-    this.currentCoolCat = ko.observable(new CoolCat());
+    var self = this;
+
+    this.currentCoolCat = ko.observable(new CoolCat(
+        {
+            name: 'Pacino',
+            clickCount: 0,
+            movies: ['GodFather Trilogy','Scarface','Carlito\'s way'],
+            imgSrc: 'img/pacino.jpg'
+        }
+    ));
+
     this.incrementCounter = function(){
-        this.currentCoolCat().clickCount(this.currentCoolCat().clickCount() + 1);
+        self.currentCoolCat().clickCount(self.currentCoolCat().clickCount() + 1);
     };
 
 }

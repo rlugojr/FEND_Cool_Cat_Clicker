@@ -7,15 +7,15 @@
 <body>
     <ul id="cool-cat-list"></ul>
     
-    <div id="cool-cat">
+    <div id="cool-cat" data-bind="with: currentCoolCat">
 
-        <h2 id="coolCatName" data-bind="text: currentCoolCat().name"></h2>
-        <h3 id="coolCatLevel" data-bind="text: currentCoolCat().level"></h3>
-        <div id="coolCatCount" data-bind="text: currentCoolCat().clickCount"></div>
-        <img id="coolCatImage" src="" alt="very cool cat" data-bind="click: incrementCounter, attr: {src: currentCoolCat().imgSrc}">
+        <h2 id="coolCatName" data-bind="text: name"></h2>
+        <h3 id="coolCatLevel" data-bind="text: level"></h3>
+        <div id="coolCatCount" data-bind="text: clickCount"></div>
+        <img id="coolCatImage" width="320px" src="" alt="very cool cat" data-bind="click: $parent.incrementCounter, attr: {src: imgSrc}">
         <div>
             <h3>Movies:</h3>
-            <ul data-bind="foreach: currentCoolCat().movies">
+            <ul data-bind="foreach: movies">
                 <li data-bind="text: $data"></li>
             </ul>
         </div>
