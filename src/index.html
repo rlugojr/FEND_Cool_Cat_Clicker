@@ -6,11 +6,12 @@
 </head>
 <body>
     <ul id="cool-cat-list"></ul>
+    
     <div id="cool-cat">
 
-        <h2 id="cool-cat-name"></h2>
-        <div id="cool-cat-count"></div>
-        <img id="cool-cat-img" src="" alt="cute cat">
+        <h2 id="coolCatName" data-bind="text: name"></h2>
+        <div id="coolCatCount" data-bind="text: clickCount"></div>
+        <img id="coolCatImage" src="" alt="very cool cat" data-bind="click: incrementCounter, attr: {src: imgSrc}">
 
     </div>
     <script src="js/lib/knockout-3.2.0.js"></script>

@@ -22,9 +22,9 @@
         this.imgSrc = ko.observable('img/deniro.jpg');
 
         this.incrementCounter = function(){
-            this.clickcount(this.clickCount + 1);
+            this.clickCount(this.clickCount() + 1);
         };
-        
+
     }
 
     ko.applyBindings(new ViewModel());
