@@ -32,6 +32,7 @@ var CoolCat = function(){
         }; 
     }, this);
     this.imgSrc = ko.observable('img/deniro.jpg');
+    this.movies = ko.observable(['GodFather II','Raging Bull', "GoodFellas", "Taxi Driver"]);
 }
 
 var ViewModel = function(){

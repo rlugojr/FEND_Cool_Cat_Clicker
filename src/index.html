@@ -14,8 +14,8 @@
         <div id="coolCatCount" data-bind="text: currentCoolCat().clickCount"></div>
         <img id="coolCatImage" src="" alt="very cool cat" data-bind="click: incrementCounter, attr: {src: currentCoolCat().imgSrc}">
         <div>
-            <h3>NickNames:</h3>
-            <ul data-bind="foreach: currentCoolCat().nicknames">
+            <h3>Movies:</h3>
+            <ul data-bind="foreach: currentCoolCat().movies">
                 <li data-bind="text: $data"></li>
             </ul>
         </div>
