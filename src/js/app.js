@@ -1,7 +1,7 @@
 
 
 
-    coolCatData = {
+var coolCatData = {
         coolCats: [
                 {
                     name: 'Deniro',
@@ -44,17 +44,20 @@ var CoolCat = function(data){
     this.movies = ko.observable(data.movies);
 }
 
+//Make coolCats Show up in a list
+
+//Make the currentCat change when you click on a coolCat
+
 var ViewModel = function(){
     var self = this;
 
-    this.currentCoolCat = ko.observable(new CoolCat(
-        {
-            name: 'Pacino',
-            clickCount: 0,
-            movies: ['GodFather Trilogy','Scarface','Carlito\'s way'],
-            imgSrc: 'img/pacino.jpg'
-        }
-    ));
+    this.coolCatList = ko.observableArray([]);
+
+    coolCatData.forEach(function(coolCatItem){
+        self.coolCatList.push(new coolCat(coolCatItem));
+    });
+
+    this.currentCoolCat = ko.observable(this.coolCatList()[0]);
 
     this.incrementCounter = function(){
         self.currentCoolCat().clickCount(self.currentCoolCat().clickCount() + 1);
