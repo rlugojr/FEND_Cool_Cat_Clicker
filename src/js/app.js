@@ -19,17 +19,17 @@
     var ViewModel = function(){
         this.clickCount = ko.observable(0);
         this.name = ko.observable('DeNiro');
-        this.level= ko.computed(function(){
-            if(this.clickCount<2){
+        this.level = ko.computed(function(){
+            if(this.clickCount()<2){
                 return "Friend of Ours"
-            }else if(this.clickCount>=3 && this.clickCount<5){
-                return "Soldier";
-            }else if(this.clickCount>=5 && this.clickCount<10){
-                return "Capo";
-            }else if(this.clickCount>=10){
+            }else if(this.clickCount()>=3 && this.clickCount()<5){
+                return "Soldier"
+            }else if(this.clickCount()>=5 && this.clickCount()<10){
+                return "Capo"
+            }else if(this.clickCount()>=10){
                 return "Capo di Tutti Capo"
             }; 
-        });
+        }, this);
         this.imgSrc = ko.observable('img/deniro.jpg');
 
         this.incrementCounter = function(){
