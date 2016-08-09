@@ -1,8 +1,7 @@
 
 
 
-var coolCatData = {
-        coolCats: [
+var coolCatData =  [
                 {
                     name: 'Deniro',
                     clickCount: 0,
@@ -22,7 +21,6 @@ var coolCatData = {
                     imgSrc: 'img/pacino.jpg'
                 }
             ]
-    }
 
 
 var CoolCat = function(data){
@@ -54,7 +52,7 @@ var ViewModel = function(){
     this.coolCatList = ko.observableArray([]);
 
     coolCatData.forEach(function(coolCatItem){
-        self.coolCatList.push(new coolCat(coolCatItem));
+        self.coolCatList.push(new CoolCat(coolCatItem));
     });
 
     this.currentCoolCat = ko.observable(this.coolCatList()[0]);
