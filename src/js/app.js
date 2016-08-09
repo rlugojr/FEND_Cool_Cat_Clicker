@@ -15,10 +15,22 @@ var coolCatData =  [
                     imgSrc: 'img/keitel.jpg'
                 },
                 {
+                    name: 'Oldman',
+                    clickCount: 0,
+                    movies: ['Dracula','True Romance','Rozencrantz and Guildenstern are dead', 'Nolan\'s Batman Trilogy'],
+                    imgSrc: 'img/oldman.jpg'
+                },
+                {
                     name: 'Pacino',
                     clickCount: 0,
                     movies: ['GodFather Trilogy','Scarface','Carlito\'s way'],
                     imgSrc: 'img/pacino.jpg'
+                },
+                {
+                    name: 'Walken',
+                    clickCount: 0,
+                    movies: ['True Romance','The Deerhunter','The King of NY'],
+                    imgSrc: 'img/walken.jpg'
                 }
             ]
 
