@@ -16,27 +16,32 @@
     }
 
 
-    var ViewModel = function(){
-        this.clickCount = ko.observable(0);
-        this.name = ko.observable('DeNiro');
-        this.level = ko.computed(function(){
-            if(this.clickCount()<2){
-                return "Friend of Ours"
-            }else if(this.clickCount()>=3 && this.clickCount()<5){
-                return "Soldier"
-            }else if(this.clickCount()>=5 && this.clickCount()<10){
-                return "Capo"
-            }else if(this.clickCount()>=10){
-                return "Capo di Tutti Capo"
-            }; 
-        }, this);
-        this.imgSrc = ko.observable('img/deniro.jpg');
+var CoolCats = function(){
+    this.clickCount = ko.observable(0);
+    this.name = ko.observable('DeNiro');
+    var clicks = this.clickCount();
+    this.level = ko.computed(function(){
+        if(clicks<5){
+            return "Friend of Ours"
+        }else if(clicks>=5 && clicks<10){
+            return "Soldier"
+        }else if(clicks>=10 && clicks<20){
+            return "Capo"
+        }else if(clicks>=20){
+            return "Capo di Tutti Capo"
+        }; 
+    }, this);
+    this.imgSrc = ko.observable('img/deniro.jpg');
+}
 
-        this.incrementCounter = function(){
-            this.clickCount(this.clickCount() + 1);
-        };
+var ViewModel = function(){
+    
 
-    }
+    this.incrementCounter = function(){
+        this.clickCount(this.clickCount() + 1);
+    };
 
-    ko.applyBindings(new ViewModel());
+}
+
+ko.applyBindings(new ViewModel());
 
