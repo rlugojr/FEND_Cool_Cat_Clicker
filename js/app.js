@@ -1,3 +1,8 @@
+/**
+ * Data array.
+ * TODO: Make simple API to pull random pics for image source by Cool Cat name.
+ * TODO: Link to IMDB page for each cool cat and each movie.
+ */
 var coolCatData = [
     {
         name: 'De Niro',
@@ -31,14 +36,16 @@ var coolCatData = [
     }
 ];
 
-
+/**
+ * This is the ViewModel for each CoolCat.
+ */
 var CoolCat = function(data) {
     var self = this;
 
     this.clickCount = ko.observable(data.clickCount);
     this.name = ko.observable(data.name);
     this.level = ko.computed(function() {
-        var clicks = Math.floor(self.clickCount() / 5);
+        var clicks = Math.floor(self.clickCount() / 5);  //Every 5 clicks changes Level Title displayed.
         switch (clicks) {
             case 0:
                 return "Street Thug";
@@ -58,11 +65,15 @@ var CoolCat = function(data) {
     this.movies = ko.observable(data.movies);
 };
 
+/**
+ * This is the main ViewModel.
+ */
 var ViewModel = function() {
     var self = this;
 
+    //Array to hold CoolCat ViewModel objects
     this.coolCatList = ko.observableArray([]);
-
+    //Populate the array.
     coolCatData.forEach(function(coolCatItem) {
         self.coolCatList.push(new CoolCat(coolCatItem));
     });
