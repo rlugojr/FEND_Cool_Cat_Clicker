@@ -1,6 +1,4 @@
 
-
-
 var coolCatData =  [
                 {
                     name: 'De Niro',
@@ -11,7 +9,7 @@ var coolCatData =  [
                 {
                     name: 'Keitel',
                     clickCount: 0,
-                    movies: ['Reservoir Dogs','Pulp Fiction'],
+                    movies: ['Reservoir Dogs','Pulp Fiction','Mean Streets'],
                     imgSrc: 'img/keitel.jpg'
                 },
                 {
@@ -39,15 +37,19 @@ var CoolCat = function(data){
     this.clickCount = ko.observable(data.clickCount);
     this.name = ko.observable(data.name);
     this.level = ko.computed(function(){
-        var clicks = this.clickCount();
-        if(clicks<5){
-            return "Friend of Ours"
-        }else if(clicks>=5 && clicks<10){
-            return "Soldier"
-        }else if(clicks>=10 && clicks<20){
-            return "Capo"
-        }else if(clicks>=20){
-            return "Capo di Tutti Capo"
+        var clicks = Math.floor(this.clickCount()/5);
+        switch(clicks){
+            case 0:
+                return "Street Thug"
+            case 1:
+                return "Friend of Ours";
+            case 2:
+                return "Soldier";
+            case 3:
+                return "Capo";
+            case 4:
+            default:
+                return "Capo di Tutti Capo";
         }; 
     }, this);
     this.imgSrc = ko.observable(data.imgSrc);
